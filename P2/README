@@ -1,0 +1,7 @@
+Query1.txt = Produce a list of the 20 largest orders in the database, where size is defined as. Order the output by decreasing order size. Include the customer name, order number, and order size in the output table.
+
+Query2.txt and Query2_nest.txt = Produce an alphabetical list of all nations in the database, along with the total order volumewithin each nation (supplier nation equal customer nation). The total order volume can be definedas the sum of order sizes. Write two queries, one using a nested query and one without a nestedquery. In each output table include the country name and the order volume.
+
+Query3.txt = Produce a list of all nations in the database. The output table should include the name of the sellernation, each nation’s total order volume from nations within their own region, and the total ordervolume from nations in a different region. Sort the nations by their total order volume within theirown region in descending order.
+
+Query4.txt = Find a list of all suppliers with orders from more than 615 different customers. Include thesupplier name and customer count in the output table and order the rows by decreasing customercount.
