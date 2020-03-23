@@ -1,0 +1,1 @@
+For each query, you are going to optimize it through various strategies(e.g., to run with a different join order,to push grouping operations below a join, to add indexes to the database, etc.)and put your optimized query in a separate file. For example, given query2.sql, your need to save your rewritten query in query2_opt.sql.
