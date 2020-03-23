@@ -1,0 +1,17 @@
+/* schoi243*/
+/* Without Nested Query */
+
+SELECT Nation.N_NAME as "nation", 
+ROUND(SUM(Lineitem.L_QUANTITY * (Lineitem.L_EXTENDEDPRICE - Lineitem.L_DISCOUNT)),2) as "order size"
+FROM Nation
+JOIN Supplier
+ON Nation.N_NATIONKEY = Supplier.S_NATIONKEY
+JOIN Customer
+ON Supplier.S_NATIONKEY = Customer.C_NATIONKEY
+JOIN Orders
+ON Customer.C_CUSTKEY = Orders.O_CUSTKEY
+JOIN Lineitem
+ON Orders.O_ORDERKEY = Lineitem.L_ORDERKEY
+WHERE Lineitem.L_SUPPKEY = Supplier.S_SUPPKEY
+GROUP BY Nation.N_NAME
+;

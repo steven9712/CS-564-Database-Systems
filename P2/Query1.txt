@@ -1,0 +1,11 @@
+/* schoi243*/
+SELECT Customer.C_NAME as "customer name", Orders.O_ORDERKEY as "order number", ROUND(SUM(Lineitem.L_QUANTITY * (Lineitem.L_EXTENDEDPRICE - Lineitem.L_DISCOUNT)),2) as "order size"
+FROM Customer
+JOIN Orders
+ON Customer.C_CUSTKEY = Orders.O_CUSTKEY
+JOIN Lineitem
+ON Orders.O_ORDERKEY = Lineitem.L_ORDERKEY
+GROUP BY Orders.O_ORDERKEY
+ORDER BY "order size" DESC
+LIMIT 20
+;

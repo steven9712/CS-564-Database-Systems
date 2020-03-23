@@ -1,0 +1,11 @@
+/* schoi243*/*/
+SELECT Supplier.S_NAME, COUNT(DISTINCT Orders.O_CUSTKEY) as "customer count"
+FROM Orders
+JOIN Lineitem
+ON Lineitem.L_ORDERKEY = Orders.O_ORDERKEY
+JOIN Supplier
+ON Lineitem.L_SUPPKEY = Supplier.S_SUPPKEY
+GROUP BY Supplier.S_NAME, Supplier.S_SUPPKEY
+HAVING COUNT (DISTINCT Orders.O_CUSTKEY) > 615
+ORDER BY "customer count" DESC
+;

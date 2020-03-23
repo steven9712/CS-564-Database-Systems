@@ -1,0 +1,19 @@
+/* schoi243*/*/
+/* Using Nested Query */
+
+SELECT nested.N_NAME as "nation",
+ROUND(SUM(Lineitem.L_QUANTITY * (Lineitem.L_EXTENDEDPRICE - Lineitem.L_DISCOUNT)),2) as "order size"
+FROM Lineitem
+INNER JOIN (
+SELECT Nation.N_NAME, Supplier.S_SUPPKEY, Orders.O_ORDERKEY
+FROM Nation
+JOIN Supplier 
+ON Nation.N_NATIONKEY = Supplier.S_NATIONKEY
+JOIN Customer
+ON Supplier.S_NATIONKEY = Customer.C_NATIONKEY
+JOIN Orders 
+ON Customer.C_CUSTKEY = Orders.O_CUSTKEY) as "nested"
+ON Lineitem.L_SUPPKEY = nested.S_SUPPKEY AND Lineitem.L_ORDERKEY = nested.O_ORDERKEY
+GROUP BY nested.N_NAME
+;
+
