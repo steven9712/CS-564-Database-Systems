@@ -1,0 +1,27 @@
+## basic information
+- name: [Steven Choi]
+- netid: [schoi243]
+
+
+## query 2 
+- A Description of how you optimize the query
+
+[used an index for table part on columns p_size and p_type and for table region on columns r_name, did not use other indexes since the other columns in the WHERE clause are integer columns "keys" whereas the columns in the index contains long strings]
+
+- The optimized query shows [93.29] % improvement over baseline. 
+
+
+## query 3
+- A Description of how you optimize the query
+
+[used a different join order for the FROM customer, orders, lineitem and used a JOIN ____ ON ____ clauses to replace the FROM ____ WHERE ____ clauses. used with statements to group operations before the join so we only get the selected columns we need. Used index for table orders on columns o_orderdate and o_shippriority and on table customer on column c_mktsegment and on table lineitem on columns l_extendedprice, l_discount (these two are the columns in the SUM() and most importantly on table orders on column o_custkey]
+
+- The optimized query shows [47.06] % improvement over baseline. 
+
+
+## query 4 
+- A Description of how you optimize the query
+
+[used WITH clause for table lineitem to group the columns l_orderkey, l_commitdate, and l_receiptdate that we need before the query. Changed Select * from the subquery to Select l_orderkey since finding all columns is redundant. Used indexes for table orders on columns o_orderdate and on table lineitem on columns l_commitdate and l_receiptdate so that sql does not traverse through the entire column ]
+
+- The optimized query shows [42.74] % improvement over baseline. 
