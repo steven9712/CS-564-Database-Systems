@@ -1,8 +1,11 @@
 Program Specification: Your program mustbe named “wl”.  When started, your program will display a prompt “>” (printed on stdout/cout) and will then be ready to accept one of the following commands:
 
 1.“load <filename>”:  This command loads the specified file. The filemay be specified by either an absolute or a relative pathname. Running this command should result in your program parsing and storing  the  words  in  this  file  in  a  data  structure  that  can  be  queried  using  the  locate  command (described below). A word is defined as a sequence of upper and lower case letters in the English alphabet (i.e. characters ‘a’ to ‘z’, and ‘A’ to ‘Z’), numbers, and the apostrophe. All other characters are considered as white space and will therefore be treated as terminating a word. Twosuccessive load commands should be treated as if there is an intermediate “new” command (see below) in between the two commands.
+
 2.“locate <word> <n>”: This command outputs the number of the word, counting from the beginning of the file, of the nthoccurrence of the word. Word numbering starts from 1, so the first word in the load file has a word number of 1. The locate command is case insensitive, i.e. to match the word in the locate command with a word in the load file you should use a case-insensitive string comparison method. If there are no matches for the locate command, print “No matching entry”. The  syntax  of  the  locate  command  is  “locate  <word>  <n>”.  The  “<word>”  parameter  will  have  a whitespace before and after it, and “<n>” should be an integer greater than 0.As an example, the following are legal commands: “locate sing 3” and “locate  sing  3”Both locate the 3rdoccurrence of “sing”, but the second command has a few additional blank spaces around the parameter “sing”. The following commands are not legal: “locate sing3”, “locate sing 3q”. The first command does not specify a parameter <n>, and in the second command the parameter <n> is not an integer. Please note that the command “locate sing23 4” is a legal command for locating the fourth occurrence of the word “sing23”.
+
 3.“new”: This command resets the word list to the original (empty) state.
+
 4.“end”: This command terminates the program.
 
 Your program should respond to incorrect commands in the following ways: 
